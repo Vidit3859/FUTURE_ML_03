@@ -1,25 +1,33 @@
-# 🚀 Customer Support Chatbot (NLP + ML)  
-### A Machine Learning Project by *Vidit Kumar*  
-### Repository: *FUTURE_ML_03*
+# 🤖 Customer Support Chatbot (NLP + ML)
 
-<p align="center">
-  <img src="Chatbot_Homepage.png" alt="Chatbot Homepage" width="650"/>
-</p>
+A Machine Learning–powered **Customer Support Chatbot** that automatically responds to customer queries using **Natural Language Processing (NLP)** and **Information Retrieval** techniques.
+
+The chatbot is trained on historical customer–agent conversations and uses **TF-IDF vectorization + cosine similarity** to find the most relevant response.  
+It is deployed as an interactive **Streamlit web application**.
+
+🔗 **Live Demo:**  
+https://vidit-ml-customer-support-chatbot.streamlit.app/
 
 ---
 
 ## 📖 Project Overview
 
-The *Customer Support Chatbot* is an NLP-powered system designed to automatically respond to customer queries using historical customer–agent conversations from Twitter.  
+Customer support teams often handle a large number of repetitive queries such as password resets, refunds, delivery status, and contact information. This project aims to **automate first-level customer support** by providing instant, accurate responses using Machine Learning.
 
-It uses:
+This chatbot works as an **information-retrieval system**, not a generative model.  
+It matches user questions with the most similar previously answered customer queries and returns the corresponding response.
 
-- *TF-IDF Vectorization*  
-- *Cosine Similarity Matching*  
-- *Custom text preprocessing pipeline*  
-- *Streamlit Interface*
+### 🔍 How it works
+- User enters a query through the Streamlit web interface
+- The text is cleaned and preprocessed
+- TF-IDF vectorization converts text into numerical form
+- Cosine similarity finds the closest matching FAQ
+- The best response is returned, or a fallback message if confidence is low
 
-This chatbot can answer common customer support questions instantly and can be extended to any domain with FAQ-style data.
+### 🎯 Use Cases
+- Automated FAQ support
+- First-level customer service automation
+- NLP portfolio project demonstrating real-world ML usage
 
 ---
 
@@ -51,43 +59,94 @@ A clean, modern interface where users can ask any customer support–related que
 
 ## 🛠 Tech Stack
 
-| Component | Technology |
-|----------|------------|
-| Programming | Python |
-| NLP | Scikit-learn (TF-IDF, Cosine Similarity) |
-| Data Cleaning | Regex, Pandas |
-| Deployment | Streamlit |
-| Model Storage | Pickle |
+The project is built using the following technologies and tools:
+
+### 💻 Programming Language
+- **Python**
+
+### 📊 Data Processing & Machine Learning
+- **Pandas** – data handling and preprocessing  
+- **NumPy** – numerical operations  
+- **scikit-learn** – TF-IDF vectorization and cosine similarity  
+
+### 🧠 Natural Language Processing
+- **TF-IDF (Term Frequency–Inverse Document Frequency)**  
+- **Cosine Similarity** for semantic matching  
+
+### 🌐 Web Application
+- **Streamlit** – interactive web interface for the chatbot  
+
+### 📦 Model Persistence
+- **Joblib** – saving and loading trained models efficiently  
+
+### 🧪 Development Tools
+- **Jupyter Notebook** – EDA and model experimentation  
+- **VS Code** – development environment  
+- **Git & GitHub** – version control and collaboration  
+
+### ☁ Deployment
+- **Streamlit Cloud** – hosting and deployment of the web app
+
+---
+
+## 📊 Dataset Description
+
+This project uses the **Twitter Customer Support Dataset (TWCS)**, which contains real-world conversations between customers and customer support agents on Twitter.
+
+The dataset includes:
+- Customer questions or complaints
+- Official responses from company support accounts
+- Conversation metadata (tweet IDs, reply relationships, timestamps)
+
+### 🧹 Data Processing
+Due to the large size of the original dataset, only a **small, relevant subset** is used in the final application.
+
+The following steps were performed:
+- Removal of URLs, mentions, special characters, and extra spaces
+- Conversion of text to lowercase
+- Extraction of meaningful **question–answer pairs**
+- Removal of duplicate entries
+- Selection of a compact FAQ-style dataset for fast inference
+
+### 📁 Stored Data
+Instead of storing the full raw dataset in the repository, the processed data is saved as a lightweight artifact:
+
+- `faq_data.pkl` → cleaned FAQ dataframe  
+- `vectorizer.pkl` → trained TF-IDF vectorizer  
+
+This keeps the repository clean, lightweight, and deployment-friendly.
+
+> ⚠ **Note:**  
+> The original raw dataset is intentionally excluded from the repository due to its large size.
 
 ---
 
 ## 📂 Project Structure
 
-
+```.md
 FUTURE_ML_03/
-│
-├── app/
-│   └── app.py                 # Streamlit UI
-│
-├── data/
-│   ├── raw/                   # Original dataset (twcs.csv)
-│   └── processed/             # Cleaned FAQ dataset
-│
-├── models/
-│   ├── vectorizer.pkl         # TF-IDF Vectorizer
-│   └── faq_data.pkl           # Cleaned and processed dataframe
-│
-├── notebooks/
-│   ├── 01_eda.ipynb           # Data exploration + cleaning
-│   └── 02_model.ipynb         # Model building + save artifacts
-│
-├── utils/
-│   ├── chatbot_engine.py      # Main ML logic
-│   └── text_cleaning.py       # Cleaning functions
-│
-├── README.md                  # Project documentation
-└── requirements.txt           # Dependencies
-
+├─ app/
+│  └─ app.py
+├─ assets/
+│  ├─ Chatbot_Homepage.png
+│  ├─ Question+Answer.png
+│  └─ Fallback_Example.png
+├─ data/
+│  ├─ raw/
+│  └─ processed/
+├─ models/
+│  ├─ faq_data.pkl
+│  └─ vectorizer.pkl
+├─ notebooks/
+│  ├─ 01_eda.ipynb
+│  └─ 02_model.ipynb
+├─ utils/
+│  ├─ chatbot_engine.py
+│  └─ text_cleaning.py
+├─ requirements.txt
+├─ README.md
+└─ .gitignore
+```
 
 ---
 
@@ -133,57 +192,82 @@ FUTURE_ML_03/
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Chatbot Homepage  
-<p align="center">
-  <img src="Chatbot_Homepage.png" width="700"/>
-</p>
-
-### 💬 Question + Answer Example  
-<p align="center">
-  <img src="Question+Answer.png" width="700"/>
-</p>
-
-### 🔄 Fallback Response Example  
-<p align="center">
-  <img src="Fallback_Example.png" width="700"/>
-</p>
-
----
 
 ## ⚙ Installation & Setup
 
 ### 1️⃣ Clone the Repo
-bash
+
+```bash
 git clone https://github.com/Vidit3859/FUTURE_ML_03
 cd FUTURE_ML_03
-
+```
 
 ### 2️⃣ Create a virtual environment
-bash
+
+```bash
 python -m venv venv
+```
 
 Activate it:
 
-*Windows*
-bash
-venv\Scripts\activate
+**Windows (PowerShell/CMD)**
 
+```bash
+venv\Scripts\activate
+```
+
+**macOS/Linux**
+
+```bash
+source venv/bin/activate
+```
 
 ### 3️⃣ Install dependencies
-bash
-pip install -r requirements.txt
 
+```bash
+pip install -r requirements.txt
+```
 
 ### 4️⃣ Run the app
-bash
-streamlit run app/app.py
 
+```bash
+streamlit run app/app.py
+```
 
 Your chatbot will open at:
 
 👉 http://localhost:8501
+
+### ✅ Prerequisites
+
+- Python 3.9+
+
+- Git
+
+- Internet connection (for initial package installation)
+
+---
+
+## 📸 Screenshots
+
+### 🏠 Chatbot Homepage
+The main interface of the Customer Support Chatbot built using Streamlit.
+
+![Chatbot Homepage](assets/Chatbot_Homepage.png)
+
+---
+
+### 💬 Question & Answer Example
+An example showing how the chatbot retrieves the most relevant answer for a user query using TF-IDF and cosine similarity.
+
+![Question and Answer Example](assets/Question+Answer.png)
+
+---
+
+### 🔄 Fallback Response Example
+When the similarity score is below the defined threshold, the chatbot safely returns a fallback response.
+
+![Fallback Response Example](assets/Fallback_Example.png)
 
 ---
 
@@ -196,7 +280,7 @@ Transforms text into numerical weights.
 Computes how similar the user query is to all historical questions.
 
 ### 🔹 Fallback Handling  
-If similarity < *0.2*, the model responds:  
+If similarity < **0.2**, the model responds:  
 > “I'm not sure about that. Could you rephrase?”
 
 ---
