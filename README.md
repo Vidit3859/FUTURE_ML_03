@@ -184,11 +184,14 @@ FUTURE_ML_03/
 
 ## 🎬 Project Demo (GIF)
 
-👉 *Add your Demo GIF here once recorded*
+Below is a short demo showcasing the Customer Support Chatbot in action, including:
+- Asking a known customer query
+- Receiving an automated response
+- Triggering the fallback response for unknown queries
 
-
-![Demo GIF](demo.gif)
-
+<p align="center">
+  <img src="assets/chatbot_demo.gif" alt="Customer Support Chatbot Demo" width="800">
+</p>
 
 ---
 
@@ -296,8 +299,9 @@ If similarity < **0.2**, the model responds:
 
 ## 👨‍💻 Author
 
-*Vidit Kumar*
+**Vidit Kumar**
 
+- 📧 Email: vidit.kumar624@gmail.com
 - 🔗 LinkedIn: https://linkedin.com/in/viditkumar-in  
 - 🐙 GitHub: https://github.com/Vidit3859  
 
