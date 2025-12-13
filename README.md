@@ -267,7 +267,6 @@ An example showing how the chatbot retrieves the most relevant answer for a user
 ### 🔄 Fallback Response Example
 When the similarity score is below the defined threshold, the chatbot safely returns a fallback response.
 
-![Fallback Response Example](assets/Fallback_Example.png)
 
 ---
 
